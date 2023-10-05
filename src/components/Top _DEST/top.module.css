@@ -1,0 +1,18 @@
+@media (max-width:1000px) {
+    .custom{
+      margin-top:280px;
+    }
+  }
+
+  @media (max-width:400px) {
+    .custom{
+      margin-top:320px;
+    }
+  }
+  
+  @media (min-width:1000px) {
+    .custom {
+      margin-top: 80px; 
+    }
+  }
+  
