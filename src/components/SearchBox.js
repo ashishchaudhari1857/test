@@ -24,8 +24,12 @@ function SearchBox() {
 
   const filterdata = (e) => {
     const inputValue = e.target.value.toLowerCase();
+    if( inputValue.length===0){
+  setFilteredData([])
+    }else{
     data = a.filter((item) => item.toLowerCase().includes(inputValue));
     setFilteredData(data);
+    }
   };
 
   return (
@@ -36,7 +40,7 @@ function SearchBox() {
             <Form.Group controlId="formBasicEmail">
             <div className='fs-8 fw-bold text-center'>location</div>
 
-              <Form.Control type="SEARCH" placeholder="search location" onChange={filterdata} />
+              <Form.Control type="SEARCH" placeholder="search location"  onChange={filterdata} />
               <ul>
                 {filteredData?.map((item, index) => (
                   <li key={index}>{item}</li>

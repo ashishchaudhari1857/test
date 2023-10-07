@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
-import { DatePicker } from 'antd';
-// import 'antd/dist/antd.css';
+import DateRangePicker from 'react-bootstrap-daterangepicker';
+import 'bootstrap/dist/css/bootstrap.css'; // Import Bootstrap CSS
+import 'bootstrap-daterangepicker/daterangepicker.css'; // Import Date Range Picker CSS
 
-const MYCalendar = (props) => {
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [calendarOpen, setCalendarOpen] = useState(false);
+function MyCalender() {
+  const [dateRange, setDateRange] = useState('');
 
-  const handleDateChange = (dates) => {
-    setDateRange(dates);
-  };
-
-  const toggleCalendar = () => {
-    setCalendarOpen(!calendarOpen);
+  const handleDateRangeChange = (event, picker) => {
+    setDateRange(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
   };
 
   return (
     <div className='bg-light mt-2 p-3 rounded-lg' style={{ borderRadius: "14px" }}>
-      <div className='fs-8 fw-bold' style={{ display: "flex", justifyContent: "space-around" }}>
-        <div>check in</div>
-        <div>check out</div>
+      <div className='justify-content-around d-flex fw-bold'>
+        <div>Check in</div>
+        <div> Check out</div>
       </div>
-      <div>
-        <DatePicker.RangePicker
-          value={dateRange}
-          onChange={handleDateChange}
-          open={calendarOpen}
-          onOpenChange={toggleCalendar}
-        />
-      </div>
+      <DateRangePicker onApply={handleDateRangeChange}>
+        <input type="text" value={dateRange}  style={{width:"250px"}}  className='text-center rounded'/>
+      </DateRangePicker>
+     
     </div>
   );
 }
 
-export default MYCalendar;
+export default MyCalender;

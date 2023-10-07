@@ -16,3 +16,22 @@
     }
   }
   
+
+  /* top.module.css */
+.overlayText {
+  position: absolute;
+  top: 50%; /* Adjust this value to vertically center the text */
+  left: 50%; /* Adjust this value to horizontally center the text */
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  font-size:1.7rem;
+  text-align: center;
+  border-radius: 5px;
+  pointer-events: none; /* Allows interactions with elements underneath */
+font-family: Georgia, 'Times New Roman', Times, serif;}
+
+.imageContainer {
+  position: relative;
+}
